@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { adminLoginReducer } from './reducers/adminReducer'
+import { addEmployerReducer, adminLoginReducer, listEmployerReducer } from './reducers/adminReducer'
 import { employeeLoginReducer, fetchEmployeeReducer } from './reducers/employeeReducer'
 import { addEmployeeReducer, deleteEmployeeReducer, importEmployeeReducer, listEmployeeReducer, updateEmployeeReducer } from './reducers/employerReducer'
 
@@ -9,7 +9,8 @@ const reducer = combineReducers({
 
     // Admin
     adminLogin: adminLoginReducer,
-    addEmployer: addEmployeeReducer,
+    addEmployer: addEmployerReducer,
+    listEmployer: listEmployerReducer,
 
     // Employer
     employerLogin: employeeLoginReducer,

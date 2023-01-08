@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { adminLogin } from '../../redux/actions/adminAction';
-import './AdminLogin.css';
+import { Routes } from '../../routes';
+import './Admin.css';
 
 const AdminLogin = () => {
   const dispatch = useDispatch();
@@ -20,8 +21,13 @@ const AdminLogin = () => {
     event.preventDefault();
     const loginData = { email, password }
     dispatch(adminLogin(loginData));
-    // history.push('/admin-dashboard');
   };
+
+  useEffect(() => {
+    if (successCreate && history.location.pathname !== Routes.AdminDashboard.path) {
+      history.push(Routes.AdminDashboard.path);
+    }
+  }, [successCreate, history]);
 
   return (
     <div className="login-container">

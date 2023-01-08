@@ -5,7 +5,7 @@ const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getI
 const API = axios.create({
     baseURL: process.env.REACT_APP_BASE_API_URL,
     headers: {
-        Authorization: `Bearer ${userInfo?.data?.accessToken}`
+        Authorization: `Bearer ${userInfo?.data?.token}`
     }
 });
 
@@ -16,6 +16,10 @@ export const adminLogin = (data) =>
 
 export const addEmployer = (data) =>
     API.post(`/employer/add`, data);
+
+export const listEmployer = () =>
+    API.get(`/employer/list`);
+
 
 // Employer
 
