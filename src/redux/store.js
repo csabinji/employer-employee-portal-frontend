@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import { adminLoginReducer } from './reducers/adminReducer'
 import { employeeLoginReducer, fetchEmployeeReducer } from './reducers/employeeReducer'
 import { addEmployeeReducer, deleteEmployeeReducer, importEmployeeReducer, listEmployeeReducer, updateEmployeeReducer } from './reducers/employerReducer'
@@ -35,7 +36,7 @@ const middleware = [thunk];
 let store = createStore(
     reducer,
     initialState,
-    composeWithDevTools(applyMiddleware(...middleware, socketMiddleware))
+    composeWithDevTools(applyMiddleware(...middleware))
 )
 
 export default store;

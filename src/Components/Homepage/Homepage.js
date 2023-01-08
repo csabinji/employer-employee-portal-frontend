@@ -6,18 +6,16 @@ import { Routes } from '../../routes';
 const Homepage = () => {
     const history = useHistory();
 
-    console.log(history);
-
     const handleAdminLogin = () => {
         history.push(Routes.AdminLogin.path);
     };
 
     const handleEmployeeLogin = () => {
-        history.push(`${Routes.Login}/employee`);
+        history.push(`${Routes.Login.path}/employee`);
     };
 
     const handleEmployerLogin = () => {
-        history.push(`${Routes.Login}/employer`);
+        history.push(`${Routes.Login.path}/employer`);
     };
     return (
         <div className="homepage-container">
